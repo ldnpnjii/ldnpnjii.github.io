@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黑料不打烊 - 官方视频门户 | 深度幕后与真实影像社区</title>
+  <meta name="description" content="黑料不打烊官方网站，专注于真实幕后影像与深度人物故事的视频内容社区，为创作者与企业搭建高品质内容生态。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2314141c'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23ff6a3d' stroke-width='8'/%3E%3Cpolygon points='44,36 70,50 44,64' fill='%23ff6a3d'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --hl-dark: #111116;
+      --hl-panel: #1a1a22;
+      --hl-card: #20202a;
+      --hl-line: #2e2e3a;
+      --hl-accent: #ff6a3d;
+      --hl-accent-2: #ffb347;
+      --hl-text: #ececf0;
+      --hl-muted: #a0a0b0;
+      --hl-soft: #2a2a36;
+      --hl-glow: 0 0 24px rgba(255,106,61,.35);
+      --hl-radius: 18px;
+      --hl-radius-sm: 10px;
+      --hl-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--hl-font);
+      background: var(--hl-dark);
+      color: var(--hl-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .hl-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .hl-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    /* sticky group: announcement + header */
+    .hl-sticky-top { position: sticky; top: 0; z-index: 100; background: var(--hl-dark); }
+    .hl-announcement {
+      background: linear-gradient(90deg, #ff6a3d 0%, #ff8f4d 55%, #ffb347 100%);
+      color: #111116;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 0;
+      letter-spacing: 0.02em;
+    }
+    .hl-announcement .hl-container { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .hl-announcement-badge {
+      background: #111116;
+      color: #ffb347;
+      padding: 2px 10px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .hl-announcement-text { flex: 1; min-width: 0; }
+    .hl-announcement-text a { text-decoration: underline; text-underline-offset: 2px; }
+    .hl-header {
+      border-bottom: 1px solid var(--hl-line);
+      background: rgba(17,17,22,.94);
+      backdrop-filter: blur(12px);
+    }
+    .hl-header .hl-container {
+      display: flex; align-items: center; gap: 28px;
+      height: 68px;
+    }
+    .hl-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.01em; flex-shrink: 0; }
+    .hl-brand-mark {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--hl-accent);
+      display: grid; place-items: center;
+      color: #111116; font-size: 1rem; font-weight: 900;
+      box-shadow: var(--hl-glow);
+    }
+    .hl-brand-dot { color: var(--hl-accent); }
+    .hl-nav { display: flex; gap: 4px; flex: 1; }
+    .hl-nav a {
+      padding: 8px 14px; border-radius: 8px;
+      font-size: 0.88rem; color: var(--hl-muted);
+      transition: .2s; white-space: nowrap;
+    }
+    .hl-nav a:hover { color: var(--hl-text); background: var(--hl-soft); }
+    .hl-header-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .hl-search-wrap { position: relative; display: flex; align-items: center; }
+    .hl-search-input {
+      background: var(--hl-panel); border: 1px solid var(--hl-line);
+      border-radius: 100px; padding: 9px 16px 9px 38px;
+      font-size: 0.84rem; color: var(--hl-text); width: 210px;
+      outline: none; transition: .25s; font-family: inherit;
+    }
+    .hl-search-input:focus { border-color: var(--hl-accent); box-shadow: 0 0 0 3px rgba(255,106,61,.18); width: 250px; }
+    .hl-search-icon {
+      position: absolute; left: 14px; width: 15px; height: 15px;
+      pointer-events: none; stroke: var(--hl-muted);
+    }
+    .hl-search-feedback {
+      position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+      background: var(--hl-card); border: 1px solid var(--hl-line);
+      border-radius: 12px; padding: 8px; font-size: 0.8rem; color: var(--hl-muted);
+      display: none; box-shadow: 0 12px 32px rgba(0,0,0,.5); z-index: 30;
+    }
+    .hl-search-feedback.hl-show { display: block; }
+    .hl-search-feedback strong { color: var(--hl-accent-2); }
+    .hl-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      border-radius: 100px; font-weight: 600; font-size: 0.88rem;
+      padding: 10px 22px; cursor: pointer; border: none;
+      transition: .22s; font-family: inherit; white-space: nowrap;
+    }
+    .hl-btn-primary { background: var(--hl-accent); color: #111116; box-shadow: 0 4px 18px rgba(255,106,61,.3); }
+    .hl-btn-primary:hover { background: var(--hl-accent-2); transform: translateY(-1px); }
+    .hl-btn-ghost { background: transparent; color: var(--hl-text); border: 1px solid var(--hl-line); }
+    .hl-btn-ghost:hover { border-color: var(--hl-accent); color: var(--hl-accent); }
+    .hl-btn-sm { padding: 7px 15px; font-size: 0.8rem; }
+    .hl-menu-toggle { display: none; background: none; border: 1px solid var(--hl-line); color: var(--hl-text); border-radius: 9px; padding: 7px 10px; cursor: pointer; font-size: 1rem; }
+
+    /* hero */
+    .hl-hero { padding: 56px 0 64px; position: relative; overflow: hidden; }
+    .hl-hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+    .hl-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--hl-accent-2); font-weight: 600; margin-bottom: 20px;
+    }
+    .hl-hero-eyebrow::before { content: ''; width: 26px; height: 2px; background: var(--hl-accent); }
+    .hl-hero h1 { font-size: clamp(2.4rem, 5.2vw, 4rem); line-height: 1.06; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 20px; }
+    .hl-hero h1 span { color: var(--hl-accent); }
+    .hl-hero-sub { color: var(--hl-muted); font-size: 1.02rem; max-width: 520px; margin-bottom: 26px; }
+    .hl-hero-intro { font-size: 0.92rem; color: #c4c4d0; line-height: 1.75; margin-bottom: 30px; max-width: 540px; border-left: 3px solid var(--hl-accent); padding-left: 16px; }
+    .hl-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+    .hl-hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+    .hl-stat-num { font-size: 1.6rem; font-weight: 800; color: var(--hl-accent-2); line-height: 1.1; }
+    .hl-stat-label { font-size: 0.78rem; color: var(--hl-muted); margin-top: 4px; }
+    .hl-hero-visual { position: relative; border-radius: 26px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.6); border: 1px solid var(--hl-line); aspect-ratio: 16 / 11; }
+    .hl-hero-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .hl-hero-float {
+      position: absolute; bottom: 18px; left: 18px; right: 18px;
+      background: rgba(17,17,22,.82); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.1); border-radius: 14px;
+      padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .hl-play-dot { width: 34px; height: 34px; border-radius: 50%; background: var(--hl-accent); display: grid; place-items: center; flex-shrink: 0; }
+    .hl-play-dot::after { content: ''; border-left: 10px solid #111116; border-top: 6px solid transparent; border-bottom: 6px solid transparent; margin-left: 3px; }
+    .hl-hero-float-text { font-size: 0.82rem; line-height: 1.35; }
+    .hl-hero-float-text strong { display: block; font-size: 0.86rem; }
+
+    /* section basics */
+    .hl-section { padding: 64px 0; border-top: 1px solid var(--hl-line); }
+    .hl-section-head { margin-bottom: 36px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .hl-section-title { font-size: clamp(1.55rem, 2.8vw, 2.15rem); font-weight: 800; letter-spacing: -0.02em; }
+    .hl-section-title em { color: var(--hl-accent); font-style: normal; }
+    .hl-section-desc { color: var(--hl-muted); font-size: 0.9rem; max-width: 520px; margin-top: 8px; }
+    .hl-tag { display: inline-block; background: var(--hl-soft); color: var(--hl-accent-2); border-radius: 100px; padding: 3px 12px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; }
+
+    /* spotlight */
+    .hl-spotlight-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 26px; }
+    .hl-spotlight-main { border-radius: var(--hl-radius); overflow: hidden; border: 1px solid var(--hl-line); background: var(--hl-panel); transition: .3s; }
+    .hl-spotlight-main:hover { border-color: var(--hl-accent); transform: translateY(-3px); box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .hl-spotlight-main-img { aspect-ratio: 16 / 9; overflow: hidden; }
+    .hl-spotlight-main-img img { width: 100%; height: 100%; object-fit: cover; }
+    .hl-spotlight-body { padding: 22px 24px 24px; }
+    .hl-spotlight-body h3 { font-size: 1.28rem; margin: 10px 0 8px; line-height: 1.35; }
+    .hl-spotlight-body p { color: var(--hl-muted); font-size: 0.88rem; margin-bottom: 16px; }
+    .hl-meta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.78rem; color: var(--hl-muted); }
+    .hl-spotlight-list { display: flex; flex-direction: column; gap: 14px; }
+    .hl-spotlight-item { display: flex; gap: 14px; background: var(--hl-panel); border: 1px solid var(--hl-line); border-radius: 14px; padding: 16px; transition: .25s; }
+    .hl-spotlight-item:hover { border-color: var(--hl-accent); background: var(--hl-card); }
+    .hl-spotlight-thumb { width: 92px; height: 68px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+    .hl-spotlight-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .hl-spotlight-item h4 { font-size: 0.94rem; line-height: 1.35; margin-bottom: 5px; }
+    .hl-spotlight-item p { font-size: 0.78rem; color: var(--hl-muted); }
+
+    /* video stream */
+    .hl-video-list { display: flex; flex-direction: column; gap: 18px; }
+    .hl-video-card { display: grid; grid-template-columns: 260px 1fr; gap: 24px; background: var(--hl-panel); border: 1px solid var(--hl-line); border-radius: var(--hl-radius); overflow: hidden; transition: .25s; }
+    .hl-video-card:hover { border-color: var(--hl-accent); transform: translateX(4px); }
+    .hl-video-cover { aspect-ratio: 16 / 9; overflow: hidden; position: relative; }
+    .hl-video-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .hl-video-body { padding: 18px 22px 18px 0; display: flex; flex-direction: column; }
+    .hl-video-body h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .hl-video-body p { font-size: 0.84rem; color: var(--hl-muted); margin-bottom: 12px; flex: 1; }
+    .hl-video-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .hl-video-actions { display: flex; gap: 8px; }
+    .hl-icon-btn { background: var(--hl-soft); border: none; color: var(--hl-muted); width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; transition: .2s; font-size: 0.8rem; }
+    .hl-icon-btn:hover { background: var(--hl-accent); color: #111116; }
+    .hl-icon-btn.hl-liked { background: var(--hl-accent); color: #111116; }
+    .hl-icon-btn.hl-saved { background: var(--hl-accent-2); color: #111116; }
+    .hl-video-author { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--hl-muted); }
+    .hl-avatar-sm { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 0.7rem; font-weight: 700; color: #111116; }
+
+    /* topics */
+    .hl-topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+    .hl-topic-card { background: var(--hl-panel); border: 1px solid var(--hl-line); border-radius: var(--hl-radius); overflow: hidden; display: flex; flex-direction: column; transition: .28s; }
+    .hl-topic-card:hover { border-color: var(--hl-accent); transform: translateY(-4px); box-shadow: 0 20px 44px rgba(0,0,0,.45); }
+    .hl-topic-img { aspect-ratio: 16 / 9; overflow: hidden; }
+    .hl-topic-img img { width: 100%; height: 100%; object-fit: cover; transition: .4s; }
+    .hl-topic-card:hover .hl-topic-img img { transform: scale(1.05); }
+    .hl-topic-content { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+    .hl-topic-content h3 { font-size: 1rem; margin-bottom: 6px; }
+    .hl-topic-content p { font-size: 0.82rem; color: var(--hl-muted); margin-bottom: 12px; flex: 1; }
+    .hl-topic-items { list-style: none; font-size: 0.78rem; color: var(--hl-muted); display: flex; flex-direction: column; gap: 5px; border-top: 1px dashed var(--hl-line); padding-top: 10px; }
+    .hl-topic-items li { display: flex; gap: 6px; align-items: flex-start; }
+    .hl-topic-items li::before { content: '›'; color: var(--hl-accent); font-weight: 700; }
+
+    /* creators */
+    .hl-creator-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+    .hl-creator-card { background: var(--hl-panel); border: 1px solid var(--hl-line); border-radius: var(--hl-radius); padding: 24px; text-align: center; transition: .25s; }
+    .hl-creator-card:hover { border-color: var(--hl-accent); background: var(--hl-card); }
+    .hl-creator-avatar { width: 68px; height: 68px; border-radius: 50%; margin: 0 auto 14px; display: grid; place-items: center; font-size: 1.45rem; font-weight: 800; color: #111116; }
+    .hl-creator-card h3 { font-size: 1rem; margin-bottom: 2px; }
+    .hl-creator-skill { font-size: 0.76rem; color: var(--hl-accent-2); margin-bottom: 10px; }
+    .hl-creator-bio { font-size: 0.8rem; color: var(--hl-muted); margin-bottom: 14px; line-height: 1.6; }
+    .hl-creator-stats { display: flex; justify-content: center; gap: 18px; font-size: 0.76rem; color: var(--hl-muted); border-top: 1px solid var(--hl-line); padding-top: 12px; }
+    .hl-creator-stats strong { color: var(--hl-text); font-weight: 700; }
+
+    /* deep analysis */
+    .hl-analysis { background: var(--hl-panel); border-radius: 24px; border: 1px solid var(--hl-line); padding: clamp(28px, 4vw, 52px); }
+    .hl-analysis h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 10px; }
+    .hl-analysis h3 { font-size: 1.08rem; margin: 26px 0 8px; color: var(--hl-accent-2); }
+    .hl-analysis p { font-size: 0.92rem; color: #c4c4d0; line-height: 1.85; margin-bottom: 8px; }
+    .hl-analysis ul { margin: 8px 0 8px 20px; color: #c4c4d0; font-size: 0.9rem; line-height: 1.8; }
+    .hl-analysis li { margin-bottom: 4px; }
+
+    /* comments */
+    .hl-comment-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .hl-comment-card { background: var(--hl-panel); border: 1px solid var(--hl-line); border-radius: 14px; padding: 18px 20px; }
+    .hl-comment-head { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+    .hl-comment-avatar { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 0.76rem; font-weight: 700; color: #111116; }
+    .hl-comment-name { font-size: 0.84rem; font-weight: 600; }
+    .hl-comment-time { font-size: 0.72rem; color: var(--hl-muted); margin-left: auto; }
+    .hl-comment-text { font-size: 0.86rem; color: #c4c4d0; line-height: 1.65; }
+    .hl-comment-stars { color: var(--hl-accent-2); font-size: 0.8rem; letter-spacing: 2px; margin-top: 6px; }
+
+    /* updates + partners */
+    .hl-two-col { display: grid; grid-template-columns: 1.2fr .8fr; gap: 26px; }
+    .hl-update-list { display: flex; flex-direction: column; gap: 0; }
+    .hl-update-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--hl-line); }
+    .hl-update-item:last-child { border-bottom: none; }
+    .hl-update-date { font-size: 0.76rem; color: var(--hl-accent-2); font-weight: 600; white-space: nowrap; padding-top: 2px; }
+    .hl-update-item h3 { font-size: 0.92rem; margin-bottom: 4px; }
+    .hl-update-item p { font-size: 0.8rem; color: var(--hl-muted); }
+    .hl-partner-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .hl-partner-item { background: var(--hl-panel); border: 1px solid var(--hl-line); border-radius: 12px; padding: 18px 12px; text-align: center; font-size: 0.82rem; font-weight: 600; color: var(--hl-muted); transition: .2s; }
+    .hl-partner-item:hover { border-color: var(--hl-accent); color: var(--hl-text); }
+
+    /* faq */
+    .hl-faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 820px; }
+    .hl-faq-item { background: var(--hl-panel); border: 1px solid var(--hl-line); border-radius: 14px; overflow: hidden; }
+    .hl-faq-item summary { padding: 16px 20px; font-weight: 600; font-size: 0.92rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .hl-faq-item summary::-webkit-details-marker { display: none; }
+    .hl-faq-item summary::after { content: '+'; color: var(--hl-accent); font-size: 1.2rem; line-height: 1; transition: .2s; }
+    .hl-faq-item[open] summary::after { content: '−'; }
+    .hl-faq-item p { padding: 0 20px 16px; font-size: 0.86rem; color: var(--hl-muted); line-height: 1.7; }
+
+    /* footer */
+    .hl-footer { background: #0b0b10; border-top: 1px solid var(--hl-line); padding: 56px 0 28px; margin-top: 20px; }
+    .hl-footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .hl-footer-brand p { font-size: 0.82rem; color: var(--hl-muted); margin-top: 12px; max-width: 280px; line-height: 1.7; }
+    .hl-footer-col h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--hl-accent-2); margin-bottom: 14px; }
+    .hl-footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .hl-footer-col a { font-size: 0.83rem; color: var(--hl-muted); transition: .2s; }
+    .hl-footer-col a:hover { color: var(--hl-accent); }
+    .hl-footer-bottom { border-top: 1px solid var(--hl-line); padding-top: 22px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 0.76rem; color: var(--hl-muted); }
+
+    /* modal & toast */
+    .hl-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.7); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .hl-modal-overlay.hl-show { display: flex; }
+    .hl-modal { background: var(--hl-card); border: 1px solid var(--hl-line); border-radius: 20px; max-width: 520px; width: 100%; padding: 28px; position: relative; }
+    .hl-modal h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .hl-modal p { font-size: 0.88rem; color: var(--hl-muted); line-height: 1.7; }
+    .hl-modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; color: var(--hl-muted); font-size: 1.3rem; cursor: pointer; }
+    .hl-modal-close:hover { color: var(--hl-accent); }
+    .hl-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--hl-accent); color: #111116; padding: 10px 24px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; opacity: 0; transition: .3s; z-index: 300; pointer-events: none; }
+    .hl-toast.hl-show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .hl-back-top { position: fixed; right: 24px; bottom: 28px; width: 44px; height: 44px; border-radius: 50%; background: var(--hl-panel); border: 1px solid var(--hl-line); color: var(--hl-text); cursor: pointer; display: grid; place-items: center; font-size: 1.1rem; z-index: 90; opacity: 0; pointer-events: none; transition: .3s; }
+    .hl-back-top.hl-show { opacity: 1; pointer-events: auto; }
+    .hl-back-top:hover { border-color: var(--hl-accent); color: var(--hl-accent); }
+
+    /* responsive */
+    @media (max-width: 980px) {
+      .hl-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hl-hero-visual { max-width: 720px; }
+      .hl-spotlight-grid, .hl-two-col { grid-template-columns: 1fr; }
+      .hl-creator-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hl-topic-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hl-footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .hl-nav { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--hl-panel); border-bottom: 1px solid var(--hl-line); flex-direction: column; padding: 12px 16px; gap: 2px; z-index: 99; }
+      .hl-nav.hl-open { display: flex; }
+      .hl-menu-toggle { display: inline-flex; }
+      .hl-header-actions .hl-search-wrap { display: none; }
+      .hl-video-card { grid-template-columns: 1fr; gap: 0; }
+      .hl-video-body { padding: 16px 18px 20px; }
+      .hl-comment-grid { grid-template-columns: 1fr; }
+      .hl-creator-grid, .hl-topic-grid { grid-template-columns: 1fr; }
+      .hl-footer-grid { grid-template-columns: 1fr 1fr; }
+      .hl-hero { padding: 36px 0 44px; }
+      .hl-section { padding: 44px 0; }
+      .hl-announcement .hl-container { font-size: 0.76rem; }
+    }
+    @media (max-width: 480px) {
+      .hl-footer-grid { grid-template-columns: 1fr; }
+      .hl-hero-stats { gap: 20px; }
+      .hl-partner-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶组：公告条 + 页头 -->
+  <div class="hl-sticky-top">
+    <div class="hl-announcement">
+      <div class="hl-container">
+        <span class="hl-announcement-badge">最新</span>
+        <p class="hl-announcement-text">「幕后真实力」2026 冬季创作挑战赛正式开启报名 · 新增 3 档创作者扶持计划 · <a href="#hl-updates">查看全部企业动态 ›</a></p>
+      </div>
+    </div>
+    <header class="hl-header">
+      <div class="hl-container">
+        <a href="#" class="hl-brand"><span class="hl-brand-mark">黑</span>黑料不打烊<span class="hl-brand-dot">.</span></a>
+        <nav class="hl-nav" id="hl-main-nav" aria-label="主导航">
+          <a href="#hl-spotlight">焦点</a>
+          <a href="#hl-videos">视频</a>
+          <a href="#hl-topics">专题</a>
+          <a href="#hl-creators">创作者</a>
+          <a href="#hl-analysis">深度解析</a>
+          <a href="#hl-updates">企业动态</a>
+          <a href="#hl-faq">帮助</a>
+        </nav>
+        <div class="hl-header-actions">
+          <div class="hl-search-wrap">
+            <svg class="hl-search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" class="hl-search-input" id="hl-search-input" placeholder="搜索视频、创作者、专题…" aria-label="站内搜索">
+            <div class="hl-search-feedback" id="hl-search-feedback"></div>
+          </div>
+          <button class="hl-btn hl-btn-primary hl-btn-sm" id="hl-submit-btn" type="button">投稿入口</button>
+          <button class="hl-menu-toggle" id="hl-menu-toggle" aria-label="展开导航菜单" aria-expanded="false">☰</button>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- S2 品牌首屏 -->
+    <section class="hl-hero" aria-labelledby="hl-h1">
+      <div class="hl-container">
+        <div class="hl-hero-grid">
+          <div class="hl-hero-copy">
+            <span class="hl-hero-eyebrow">黑料不打烊 · 官方视频门户</span>
+            <h1 id="hl-h1">黑料不打烊<span>app在线安装</span></h1>
+            <p class="hl-hero-sub">一个坚持真实、深度与持续运营的视频内容品牌，让每一段幕后影像都被看见。</p>
+            <p class="hl-hero-intro">作为黑料不打烊官方网站，我们深耕幕后纪实与人物访谈的垂直领域，以「真实、专业、陪伴」为品牌理念，为创作者与企业搭建高品质内容生态。平台坚持原创正版高清内容，以匠心与用户至上的态度，记录那些值得被反复观看的影像。</p>
+            <div class="hl-hero-actions">
+              <a href="#hl-videos" class="hl-btn hl-btn-primary">浏览精品内容</a>
+              <a href="#hl-creators" class="hl-btn hl-btn-ghost">认识创作者</a>
+              <button class="hl-btn hl-btn-ghost" type="button" data-hl-share>分享官网</button>
+            </div>
+            <div class="hl-hero-stats">
+              <div><div class="hl-stat-num" data-hl-count="1260">1260+</div><div class="hl-stat-label">原创高清视频</div></div>
+              <div><div class="hl-stat-num" data-hl-count="86">86+</div><div class="hl-stat-label">签约创作者</div></div>
+              <div><div class="hl-stat-num" data-hl-count="420">420万</div><div class="hl-stat-label">社区用户口碑</div></div>
+            </div>
+          </div>
+          <div class="hl-hero-visual">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='500' viewBox='0 0 720 500'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231f1f33'/%3E%3Cstop offset='1' stop-color='%230e0e16'/%3E%3C/linearGradient%3E%3ClinearGradient id='beam' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23ff6a3d' stop-opacity='.9'/%3E%3Cstop offset='1' stop-color='%23ffb347' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='720' height='500' fill='url(%23sky)'/%3E%3Ccircle cx='540' cy='180' r='130' fill='%23ff6a3d' opacity='.12'/%3E%3Ccircle cx='540' cy='180' r='70' fill='%23ffb347' opacity='.22'/%3E%3Cpath d='M0 380 L180 240 L330 340 L470 210 L720 390 L720 500 L0 500 Z' fill='%231d1d2c'/%3E%3Cpath d='M0 430 L160 330 L320 400 L510 300 L720 430 L720 500 L0 500 Z' fill='%23252538'/%3E%3Cpath d='M120 500 L260 320 L390 500 Z' fill='%23ff6a3d' opacity='.16'/%3E%3Crect x='300' y='300' width='150' height='150' rx='20' fill='url(%23beam)' opacity='.7'/%3E%3Ccircle cx='375' cy='375' r='38' fill='%23ff6a3d'/%3E%3Cpolygon points='362,354 400,375 362,396' fill='%23111116'/%3E%3Cpath d='M60 120 L220 120' stroke='%23ff6a3d' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M60 140 L160 140' stroke='%23ffb347' stroke-width='3' stroke-linecap='round' opacity='.7'/%3E%3C/svg%3E" alt="黑料不打烊品牌主视觉：暗色剧场中的播放窗口与创作者影像" width="720" height="500">
+            <div class="hl-hero-float">
+              <span class="hl-play-dot" aria-hidden="true"></span>
+              <div class="hl-hero-float-text"><strong>本周官方推荐 · 幕后真实力</strong>跟随镜头直击创作现场的第 07 期</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 焦点内容模块 -->
+    <section class="hl-section" id="hl-spotlight" aria-labelledby="hl-spotlight-title">
+      <div class="hl-container">
+        <div class="hl-section-head">
+          <div>
+            <h2 class="hl-section-title" id="hl-spotlight-title">本周<em>焦点</em>推荐</h2>
+            <p class="hl-section-desc">黑料不打烊官方团队精选的高品质原创内容，每一期都值得收藏与讨论。</p>
+          </div>
+          <span class="hl-tag">官方发布 · 精品内容</span>
+        </div>
+        <div class="hl-spotlight-grid">
+          <article class="hl-spotlight-main">
+            <div class="hl-spotlight-main-img">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='400' viewBox='0 0 720 400'%3E%3Crect width='720' height='400' fill='%23181824'/%3E%3Crect x='40' y='40' width='640' height='320' rx='18' fill='%23212130'/%3E%3Cpath d='M80 320 L240 160 L360 250 L500 120 L640 300' stroke='%23ff6a3d' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='240' cy='160' r='10' fill='%23ffb347'/%3E%3Ccircle cx='500' cy='120' r='10' fill='%23ffb347'/%3E%3Crect x='80' y='70' width='120' height='16' rx='8' fill='%23ff6a3d' opacity='.85'/%3E%3Crect x='80' y='100' width='200' height='10' rx='5' fill='%23ffffff' opacity='.25'/%3E%3Crext x='80' y='118' width='160' height='10' rx='5' fill='%23ffffff' opacity='.15'/%3E%3C/svg%3E" alt="焦点推荐视频封面：数据曲线与创作现场画面" width="720" height="400">
+            </div>
+            <div class="hl-spotlight-body">
+              <span class="hl-tag">创作幕后</span>
+              <h3>数据不会说谎：一条爆款影像的 72 小时幕后全纪录</h3>
+              <p>从选题会到成片上线，我们跟随「黑料不打烊」官方摄制组完整记录一次内容生产。镜头之外，是对真实与品质近乎苛刻的坚持，也是社区创作者共同成长的缩影。</p>
+              <div class="hl-meta-row">
+                <span>官方编辑部</span><span>2026-11-18</span><span>播放 28.6 万</span><span>点赞 1.2 万</span>
+              </div>
+            </div>
+          </article>
+          <div class="hl-spotlight-list">
+            <article class="hl-spotlight-item">
+              <div class="hl-spotlight-thumb">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='184' height='136' viewBox='0 0 184 136'%3E%3Crect width='184' height='136' fill='%232a2140'/%3E%3Ccircle cx='92' cy='68' r='44' fill='none' stroke='%23ffb347' stroke-width='3'/%3E%3Ccircle cx='92' cy='68' r='14' fill='%23ff6a3d'/%3E%3Cpath d='M32 104 L60 82 L82 96 L110 70 L152 98' stroke='%23ffffff' stroke-width='3' opacity='.4' fill='none'/%3E%3C/svg%3E" alt="深度访谈视频缩略图：环形光晕与人物剪影" width="184" height="136">
+              </div>
+              <div>
+                <h4>在镜头前坦白：三位创作者的第一次「真实对话」</h4>
+                <p>人物访谈 · 深度表达 · 播放 16.9 万</p>
+              </div>
+            </article>
+            <article class="hl-spotlight-item">
+              <div class="hl-spotlight-thumb">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='184' height='136' viewBox='0 0 184 136'%3E%3Crect width='184' height='136' fill='%23142a2a'/%3E%3Crect x='26' y='26' width='132' height='84' rx='10' fill='none' stroke='%2337c9a0' stroke-width='3'/%3E%3Cpolygon points='78,54 112,68 78,82' fill='%23ffb347'/%3E%3Cpath d='M40 118 L144 118' stroke='%23ff6a3d' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" alt="城市探索视频缩略图：播放器与绿色调街道轮廓" width="184" height="136">
+              </div>
+              <div>
+                <h4>走街串巷第 12 期：老城区里仍然亮着灯的工作室</h4>
+                <p>城市探索 · 在地文化 · 播放 9.4 万</p>
+              </div>
+            </article>
+            <article class="hl-spotlight-item">
+              <div class="hl-spotlight-thumb">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='184' height='136' viewBox='0 0 184 136'%3E%3Crect width='184' height='136' fill='%232b2320'/%3E%3Cpath d='M20 100 Q60 40 100 80 T164 60' stroke='%23ff6a3d' stroke-width='4' fill='none'/%3E%3Ccircle cx='100' cy='80' r='8' fill='%23ffb347'/%3E%3Crect x='22' y='22' width='60' height='9' rx='4' fill='%23ffffff' opacity='.3'/%3E%3C/svg%3E" alt="实用技巧视频缩略图：上升曲线与暖色节点" width="184" height="136">
+              </div>
+              <div>
+                <h4>剪辑效率翻倍：官方团队内部使用的 7 个实用技巧</h4>
+                <p>教程干货 · 实用技巧 · 播放 21.3 万</p>
+              </div>
+            </article>
+            <article class="hl-spotlight-item">
+              <div class="hl-spotlight-thumb">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='184' height='136' viewBox='0 0 184 136'%3E%3Crect width='184' height='136' fill='%23201f2e'/%3E%3Crect x='34' y='34' width='116' height='68' rx='8' fill='%23ff6a3d' opacity='.2'/%3E%3Cpolygon points='82,54 104,68 82,82' fill='%23ff6a3d'/%3E%3Ccircle cx='140' cy='34' r='9' fill='%23ffb347'/%3E%3C/svg%3E" alt="深度测评视频缩略图：播放界面与暖橙光点" width="184" height="136">
+              </div>
+              <div>
+                <h4>三款主流收音设备横评：创作者到底该选哪一款</h4>
+                <p>深度测评 · 设备指南 · 播放 12.7 万</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 视频内容区：热门视频流 -->
+    <section class="hl-section" id="hl-videos" aria-labelledby="hl-videos-title">
+      <div class="hl-container">
+        <div class="hl-section-head">
+          <div>
+            <h2 class="hl-section-title" id="hl-videos-title">社区<em>热门视频</em></h2>
+            <p class="hl-section-desc">来自黑料不打烊创作者社区的持续更新，高清原创内容每日上线，欢迎点赞收藏。</p>
+          </div>
+          <span class="hl-tag">持续运营 · 真实社区</span>
+        </div>
+        <div class="hl-video-list">
+
+          <article class="hl-video-card">
+            <div class="hl-video-cover">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='293' viewBox='0 0 520 293'%3E%3Crect width='520' height='293' fill='%23171722'/%3E%3Crect x='30' y='30' width='460' height='233' rx='14' fill='%23222231'/%3E%3Cpath d='M60 220 L150 130 L230 180 L330 90 L460 200' stroke='%23ff6a3d' stroke-width='4' fill='none'/%3E%3Ccircle cx='330' cy='90' r='34' fill='none' stroke='%23ffb347' stroke-width='3'/%3E%3Ccircle cx='330' cy='90' r='12' fill='%23ff6a3d'/%3E%3Crect x='60' y='58' width='100' height='12' rx='6' fill='%23ffffff' opacity='.25'/%3E%3C/svg%3E" alt="视频封面：数据记录现场与上升曲线" width="520" height="293">
+            </div>
+            <div class="hl-video-body">
+              <h3>把镜头对准真实：一次关于「记录」的实验</h3>
+              <p>我们邀请 12 位社区创作者，用同一台机器拍摄各自的一天。没有脚本、没有摆拍，只有生活本来的样子。成片上线 48 小时即登上热门榜。</p>
+              <div class="hl-video-footer">
+                <div class="hl-video-author">
+                  <span class="hl-avatar-sm" style="background:#ff6a3d;">林</span>
+                  林深见鹿 · 播放 31.5 万
+                </div>
+                <div class="hl-video-actions">
+                  <button class="hl-icon-btn" type="button" data-hl-like aria-label="点赞">♡ 1.4k</button>
+                  <button class="hl-icon-btn" type="button" data-hl-save aria-label="收藏">☆</button>
+                  <button class="hl-icon-btn" type="button" data-hl-comment aria-label="评论">💬 236</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="hl-video-card">
+            <div class="hl-video-cover">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='293' viewBox='0 0 520 293'%3E%3Crect width='520' height='293' fill='%23162a28'/%3E%3Crect x='24' y='24' width='472' height='245' rx='16' fill='%231d3a36'/%3E%3Cpath d='M60 230 Q160 70 260 160 T460 110' stroke='%2337c9a0' stroke-width='4' fill='none'/%3E%3Ccircle cx='260' cy='160' r='10' fill='%23ffb347'/%3E%3Crect x='60' y='50' width='80' height='10' rx='5' fill='%23ffffff' opacity='.3'/%3E%3Crect x='60' y='68' width='130' height='8' rx='4' fill='%23ffffff' opacity='.15'/%3E%3C/svg%3E" alt="视频封面：城市街灯与绿色调路径" width="520" height="293">
+            </div>
+            <div class="hl-video-body">
+              <h3>城市夜行记 · 第 03 集：凌晨四点的早餐铺</h3>
+              <p>跟随镜头走进城市尚未苏醒的角落，记录一对夫妻档早餐铺的十年。店主说：做吃的，要对得起每一个早起的人。</p>
+              <div class="hl-video-footer">
+                <div class="hl-video-author">
+                  <span class="hl-avatar-sm" style="background:#37c9a0;">陈</span>
+                  陈屿 · 播放 18.2 万
+                </div>
+                <div class="hl-video-actions">
+                  <button class="hl-icon-btn" type="button" data-hl-like aria-label="点赞">♡ 892</button>
+                  <button class="hl-icon-btn" type="button" data-hl-save aria-label="收藏">☆</button>
+                  <button class="hl-icon-btn" type="button" data-hl-comment aria-label="评论">💬 117</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="hl-video-card">
+            <div class="hl-video-cover">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='293' viewBox='0 0 520 293'%3E%3Crect width='520' height='293' fill='%2324202b'/%3E%3Crect x='40' y='60' width='440' height='180' rx='14' fill='%232f2a3b'/%3E%3Crect x='80' y='90' width='140' height='10' rx='5' fill='%23ffb347'/%3E%3Crect x='80' y='112' width='220' height='8' rx='4' fill='%23ffffff' opacity='.2'/%3E%3Ccircle cx='400' cy='140' r='46' fill='%23ff6a3d' opacity='.18'/%3E%3Cpolygon points='384,118 420,140 384,162' fill='%23ff6a3d'/%3E%3C/svg%3E" alt="视频封面：访谈界面与对话气泡图形" width="520" height="293">
+            </div>
+            <div class="hl-video-body">
+              <h3>创作者访谈：拍了 6 年纪录片，我学会的第一件事是等待</h3>
+              <p>独立纪录片导演阿遥做客「黑料不打烊」，聊了聊那些被剪掉的镜头、被放弃的选题，以及为什么真实永远值得等待。</p>
+              <div class="hl-video-footer">
+                <div class="hl-video-author">
+                  <span class="hl-avatar-sm" style="background:#b08cff;">遥</span>
+                  阿遥 · 播放 12.4 万
+                </div>
+                <div class="hl-video-actions">
+                  <button class="hl-icon-btn" type="button" data-hl-like aria-label="点赞">♡ 654</button>
+                  <button class="hl-icon-btn" type="button" data-hl-save aria-label="收藏">☆</button>
+                  <button class="hl-icon-btn" type="button" data-hl-comment aria-label="评论">💬 88</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="hl-video-card">
+            <div class="hl-video-cover">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='293' viewBox='0 0 520 293'%3E%3Crect width='520' height='293' fill='%2327231b'/%3E%3Cpath d='M30 250 L130 160 L230 210 L330 120 L490 220' stroke='%23e0a94a' stroke-width='4' fill='none'/%3E%3Ccircle cx='330' cy='120' r='9' fill='%23ff6a3d'/%3E%3Crect x='40' y='40' width='120' height='10' rx='5' fill='%23ffffff' opacity='.25'/%3E%3Crect x='40' y='60' width='180' height='8' rx='4' fill='%23ffffff' opacity='.14'/%3E%3Crect x='340' y='200' width='120' height='36' rx='8' fill='%23ff6a3d' opacity='.4'/%3E%3C/svg%3E" alt="视频封面：暖金色调与设备评测图形" width="520" height="293">
+            </div>
+            <div class="hl-video-body">
+              <h3>新手创作者的第一台相机怎么选？三档预算实测</h3>
+              <p>从 3000 元到 12000 元，我们实际拍摄并对比了画质、防抖与收音表现，给出不同阶段创作者真正可落地的建议，不吹不黑。</p>
+              <div class="hl-video-footer">
+                <div class="hl-video-author">
+                  <span class="hl-avatar-sm" style="background:#e0a94a;">周</span>
+                  周周测评 · 播放 24.0 万
+                </div>
+                <div class="hl-video-actions">
+                  <button class="hl-icon-btn" type="button" data-hl-like aria-label="点赞">♡ 1.1k</button>
+                  <button class="hl-icon-btn" type="button" data-hl-save aria-label="收藏">☆</button>
+                  <button class="hl-icon-btn" type="button" data-hl-comment aria-label="评论">💬 203</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="hl-video-card">
+            <div class="hl-video-cover">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='293' viewBox='0 0 520 293'%3E%3Crect width='520' height='293' fill='%231a1a2c'/%3E%3Ccircle cx='150' cy='150' r='70' fill='none' stroke='%235c6bff' stroke-width='3'/%3E%3Ccircle cx='150' cy='150' r='30' fill='%235c6bff' opacity='.3'/%3E%3Cpath d='M280 220 Q340 90 420 180' stroke='%23ff6a3d' stroke-width='4' fill='none'/%3E%3Crect x='280' y='60' width='160' height='10' rx='5' fill='%23ffffff' opacity='.25'/%3E%3Crect x='280' y='82' width='110' height='8' rx='4' fill='%23ffffff' opacity='.15'/%3E%3C/svg%3E" alt="视频封面：蓝色圆环与成长曲线" width="520" height="293">
+            </div>
+            <div class="hl-video-body">
+              <h3>从 0 到 10 万粉：一个素人创作者的真实成长记录</h3>
+              <p>没有团队、没有预算，只有一部手机和下班后的两小时。这期视频完整复盘了账号从第一条无人问津到逐渐被看见的全过程。</p>
+              <div class="hl-video-footer">
+                <div class="hl-video-author">
+                  <span class="hl-avatar-sm" style="background:#5c6bff;">晚</span>
+                  晚风慢慢 · 播放 15.8 万
+                </div>
+                <div class="hl-video-actions">
+                  <button class="hl-icon-btn" type="button" data-hl-like aria-label="点赞">♡ 976</button>
+                  <button class="hl-icon-btn" type="button" data-hl-save aria-label="收藏">☆</button>
+                  <button class="hl-icon-btn" type="button" data-hl-comment aria-label="评论">💬 154</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- S4 专题企划 -->
+    <section class="hl-section" id="hl-topics" aria-labelledby="hl-topics-title">
+      <div class="hl-container">
+        <div class="hl-section-head">
+          <div>
+            <h2 class="hl-section-title" id="hl-topics-title">专题<em>企划</em></h2>
+            <p class="hl-section-desc">黑料不打烊官方策划的系列内容，围绕真实影像与创作者生态持续深耕。</p>
+          </div>
+          <span class="hl-tag">多元内容 · 品牌故事</span>
+        </div>
+        <div class="hl-topic-grid">
+          <article class="hl-topic-card">
+            <div class="hl-topic-img">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='259' viewBox='0 0 460 259'%3E%3Crect width='460' height='259' fill='%231e1a28'/%3E%3Cpath d='M0 200 L120 120 L230 170 L340 90 L460 180' stroke='%23ff6a3d' stroke-width='4' fill='none'/%3E%3Ccircle cx='340' cy='90' r='12' fill='%23ffb347'/%3E%3Crect x='30' y='30' width='110' height='12' rx='6' fill='%23ffffff' opacity='.3'/%3E%3Crect x='30' y='52' width='70' height='8' rx='4' fill='%23ffffff' opacity='.15'/%3E%3C/svg%3E" alt="专题封面：幕后真实力系列与橙色曲线" width="460" height="259">
+            </div>
+            <div class="hl-topic-content">
+              <h3>专题 · 幕后真实力</h3>
+              <p>走进内容生产的现场，记录那些不被镜头注意的瞬间。更新中的系列企划，每周一更新。</p>
+              <ul class="hl-topic-items">
+                <li>第 07 期：一场直播背后的 14 小时</li>
+                <li>第 06 期：剪辑室里被否定 9 次的方案</li>
+                <li>第 05 期：外景拍摄遇雨后的临场重写</li>
+              </ul>
+            </div>
+          </article>
+          <article class="hl-topic-card">
+            <div class="hl-topic-img">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='259' viewBox='0 0 460 259'%3E%3Crect width='460' height='259' fill='%23222a1f'/%3E%3Crect x='40' y='40' width='380' height='179' rx='14' fill='%232c3a29'/%3E%3Ccircle cx='140' cy='130' r='46' fill='none' stroke='%238cc34a' stroke-width='3'/%3E%3Ccircle cx='140' cy='130' r='14' fill='%23ffb347'/%3E%3Cpath d='M240 180 L300 110 L360 160' stroke='%238cc34a' stroke-width='4' fill='none'/%3E%3C/svg%3E" alt="专题封面：自然绿调与城市探索图形" width="460" height="259">
+            </div>
+            <div class="hl-topic-content">
+              <h3>专题 · 城市观察笔记</h3>
+              <p>以影像记录城市里具体的人与事，在地文化的真实切片。已完结 4 季，累计 38 期。</p>
+              <ul class="hl-topic-items">
+                <li>第 38 期：菜市场里的手写招牌</li>
+                <li>第 37 期：24 小时书店的守夜人</li>
+                <li>第 36 期：即将消失的旧式理发店</li>
+              </ul>
+            </div>
+          </article>
+          <article class="hl-topic-card">
+            <div class="hl-topic-img">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='259' viewBox='0 0 460 259'%3E%3Crect width='460' height='259' fill='%231c2230'/%3E%3Crect x='30' y='30' width='180' height='110' rx='12' fill='%232a3450'/%3E%3Crect x='250' y='80' width='180' height='110' rx='12' fill='%23344460'/%3E%3Ccircle cx='120' cy='85' r='22' fill='%23ff6a3d' opacity='.6'/%3E%3Ccircle cx='340' cy='135' r='22' fill='%23ffb347' opacity='.6'/%3E%3C/svg%3E" alt="专题封面：蓝灰双窗与创作者对话图形" width="460" height="259">
+            </div>
+            <div class="hl-topic-content">
+              <h3>专题 · 创作者对话录</h3>
+              <p>每期邀请 2 位不同领域的创作者，聊创作方法、更新焦虑与长期主义。更新中，已上线 11 期。</p>
+              <ul class="hl-topic-items">
+                <li>第 11 期：更新频率与内容质量如何平衡</li>
+                <li>第 10 期：从爱好到职业的转折点</li>
+                <li>第 09 期：如何处理评论区的负面声音</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- S5 创作者矩阵 -->
+    <section class="hl-section" id="hl-creators" aria-labelledby="hl-creators-title">
+      <div class="hl-container">
+        <div class="hl-section-head">
+          <div>
+            <h2 class="hl-section-title" id="hl-creators-title">签约<em>创作者</em></h2>
+            <p class="hl-section-desc">他们是黑料不打烊内容生态的核心力量，用真实影像持续陪伴社区成长。</p>
+          </div>
+          <span class="hl-tag">值得信赖 · 专业创作</span>
+        </div>
+        <div class="hl-creator-grid">
+
+          <article class="hl-creator-card">
+            <div class="hl-creator-avatar" style="background:#ff6a3d;">林</div>
+            <h3>林深见鹿</h3>
+            <div class="hl-creator-skill">纪实影像 · 幕后记录</div>
+            <p class="hl-creator-bio">前新闻摄影记者，现全职影像创作者。擅长把宏大叙事落到具体的人身上，作品多次被社区推荐。相信好内容需要耐心，也乐于分享拍摄现场的真实经验。</p>
+            <div class="hl-creator-stats"><span>作品 <strong>128</strong></span><span>粉丝 <strong>32.4万</strong></span></div>
+          </article>
+
+          <article class="hl-creator-card">
+            <div class="hl-creator-avatar" style="background:#37c9a0;">陈</div>
+            <h3>陈屿</h3>
+            <div class="hl-creator-skill">城市探索 · 在地文化</div>
+            <p class="hl-creator-bio">土生土长的城市漫游者，用脚步丈量街巷，用镜头收藏烟火气。每月固定更新城市观察系列，擅长在平淡日常中找到值得停留的瞬间，是社区公认的治愈系作者。</p>
+            <div class="hl-creator-stats"><span>作品 <strong>96</strong></span><span>粉丝 <strong>21.8万</strong></span></div>
+          </article>
+
+          <article class="hl-creator-card">
+            <div class="hl-creator-avatar" style="background:#b08cff;">遥</div>
+            <h3>阿遥</h3>
+            <div class="hl-creator-skill">人物访谈 · 深度表达</div>
+            <p class="hl-creator-bio">独立纪录片导演，拍了 6 年人物影像。提问直接、剪辑克制，喜欢让被访者自己讲完故事。在本平台持续更新对话录，希望影像能成为理解彼此的入口。</p>
+            <div class="hl-creator-stats"><span>作品 <strong>54</strong></span><span>粉丝 <strong>18.6万</strong></span></div>
+          </article>
+
+          <article class="hl-creator-card">
+            <div class="hl-creator-avatar" style="background:#e0a94a;">周</div>
+            <h3>周周测评</h3>
+            <div class="hl-creator-skill">深度测评 · 设备指南</div>
+            <p class="hl-creator-bio">影像设备测评人，坚持自费购买、实拍对比、不接虚假宣传。内容以严谨数据与使用体验结合著称，帮助大量新手创作者避开选购误区，是社区里口碑稳定的实用派。</p>
+            <div class="hl-creator-stats"><span>作品 <strong>142</strong></span><span>粉丝 <strong>27.1万</strong></span></div>
+          </article>
+
+          <article class="hl-creator-card">
+            <div class="hl-creator-avatar" style="background:#5c6bff;">晚</div>
+            <h3>晚风慢慢</h3>
+            <div class="hl-creator-skill">成长记录 · 创作幕后</div>
+            <p class="hl-creator-bio">从素人起步的成长型创作者，擅长把失败与迷茫讲得坦率。坚持每周更新一条真实记录，不修饰数据也不隐藏低谷，用持续行动陪伴许多同样在路上的普通人。</p>
+            <div class="hl-creator-stats"><span>作品 <strong>88</strong></span><span>粉丝 <strong>15.3万</strong></span></div>
+          </article>
+
+          <article class="hl-creator-card">
+            <div class="hl-creator-avatar" style="background:#ff8f8f;">苏</div>
+            <h3>苏老师的手作室</h3>
+            <div class="hl-creator-skill">手作DIY · 治愈影像</div>
+            <p class="hl-creator-bio">手作工作室主理人，视频节奏舒缓、步骤清晰，擅长把复杂工艺拆解成人人都能上手的小项目。她相信动手的过程本身就是疗愈，作品被大量社区用户收藏跟做。</p>
+            <div class="hl-creator-stats"><span>作品 <strong>76</strong></span><span>粉丝 <strong>19.9万</strong></span></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- S6 深度解析（关键词解析正文） -->
+    <section class="hl-section" id="hl-analysis" aria-labelledby="hl-analysis-title">
+      <div class="hl-container">
+        <div class="hl-analysis">
+          <h2 id="hl-analysis-title">读懂「黑料不打烊」：一个持续运营的视频品牌是如何长成的</h2>
+          <p>对很多新用户来说，「黑料不打烊」这个名字首先是一个入口——在官方渠道完成黑料不打烊app在线安装之后，看到的是一个持续更新、内容有明确品质底线的视频社区。但如果只把它当作一个普通的视频聚合产品，就会错过它真正的结构与坚持。作为黑料不打烊官方网站，我们更希望用这一节内容，把品牌背后的内容逻辑、创作者机制与社区运营方式讲清楚，让每一位用户都能理解这个平台为何值得信赖。</p>
+
+          <h3>一、定位：不是信息流，而是有主张的影像社区</h3>
+          <p>黑料不打烊从创立之初就选择了垂直领域的深耕路线。我们不追求无限扩张的品类，而是围绕「真实记录、幕后故事、人物访谈、实用干货」四条主线构建内容生态。平台上的每一条精品内容，都经过选题评估、拍摄执行、剪辑打磨与上线前复核，确保既有信息密度，也符合社区对品质的期待。正因如此，用户在这里看到的不只是「黑料」表面上的热闹，更是创作者如何诚实面对镜头、如何处理素材、如何把复杂议题讲清楚的全过程。</p>
+          <p>在品牌定位上，我们始终强调三个关键词：原创、正版、高清。原创意味着内容有明确的创作者署名与产出记录；正版意味着素材使用、音乐授权与肖像使用都经过必要流程；高清意味着播放体验与画面标准不因流量压力而降级。这些看起来是基础要求，但长期坚持本身就是门槛，也是黑料不打烊在行业中保持口碑的原因之一。</p>
+
+          <h3>二、机制：让创作者被看见，让好内容被留下</h3>
+          <p>一个视频社区能否持续运营，关键在于创作者是否能获得正向反馈。黑料不打烊把创作者支持拆成三个层次：流量扶持、能力成长与商业连接。流量扶持不是简单堆首页推荐，而是根据内容标签、完播表现与社区互动做多轮小流量测试，表现稳定再逐级放大；能力成长则通过官方训练营、剪辑工作坊与同行评议会实现，让新手创作者知道差距在哪里、下一步怎么改进。</p>
+          <ul>
+            <li>每月一次「幕后真实力」创作挑战，围绕具体主题征集作品，优秀作品进入官专题企划。</li>
+            <li>每季度一次「创作者对话录」，让不同领域的作者交流方法，也向社区公开复盘内容。</li>
+            <li>官方持续更新剪辑指南、选题清单与设备实测，降低新人入门的实际门槛。</li>
+            <li>所有互动数据与推荐逻辑对创作者透明可查，避免靠猜测运营账号。</li>
+          </ul>
+          <p>也正因为这套机制相对透明，黑料不打烊的社区氛围呈现出一种少见的「愿意讲真话」的状态。用户会在评论区认真讨论内容本身，创作者也会主动回应质疑与建议。平台不制造无意义的对立，而是通过真实、温暖的内容取向，把讨论引向更有建设性的方向。</p>
+
+          <h3>三、体验：黑料不打烊app在线安装与官网的一致标准</h3>
+          <p>对于希望通过移动端随时观看的用户，黑料不打烊app在线安装是官方提供的标准路径。安装完成后，应用内的内容库、创作者主页、收藏与互动数据与官网保持同步，用户不必担心在不同设备上看到两套标准。我们特意把「清晰、顺滑、少打扰」作为产品体验原则：播放器控件简洁，推荐理由可解释，下载与缓存流程明确，评论区加载不打断观看。这些细节不构成宣传噱头，却直接决定了用户是否愿意长期停留。</p>
+          <p>与此同时，官网承担着品牌展示与内容沉淀的职责。企业简介、品牌故事、企业动态、合作品牌与帮助中心都在官网完整呈现，用户可以通过它了解平台的运营主体、更新节奏与社区规则。这种公开透明，本身是企业级品牌与普通内容站点的区别，也是我们持续运营的底气所在。我们相信，一个愿意把规则和进度公开的平台，才配得上「用户首选」这四个字。</p>
+
+          <h3>四、未来：在创新中守住真实</h3>
+          <p>接下来一年，黑料不打烊会把更多资源投入到「内容影响力」与「社会责任」两条线上：一方面继续扶持深耕真实题材的创作者，让幕后故事与深度访谈成为平台最鲜明的标签；另一方面推动创作工具升级，帮助创作者更高效地完成从灵感到成片的全过程。我们也会在社区内发起更多投票、挑战与共创活动，让用户不只是观看者，更是内容生态的参与者。</p>
+          <p>创新不意味着追逐所有热点，多元也不意味着放弃标准。对黑料不打烊而言，技术、工具与运营方式可以持续变化，但对真实的尊重、对创作者的陪伴、对用户口碑的珍惜不会变。这正是我们写下这一段深度解析的原因：让每一位新朋友在打开官网或完成黑料不打烊app在线安装之前，就已经清楚地知道，自己进入的是一个什么样的社区。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- S6 用户评价 -->
+    <section class="hl-section" id="hl-reviews" aria-labelledby="hl-reviews-title">
+      <div class="hl-container">
+        <div class="hl-section-head">
+          <div>
+            <h2 class="hl-section-title" id="hl-reviews-title">社区<em>口碑</em>评价</h2>
+            <p class="hl-section-desc">来自真实用户的持续反馈，是黑料不打烊保持品质与口碑的重要动力。</p>
+          </div>
+          <span class="hl-tag">用户至上 · 温暖陪伴</span>
+        </div>
+        <div class="hl-comment-grid">
+
+          <article class="hl-comment-card">
+            <div class="hl-comment-head">
+              <span class="hl-comment-avatar" style="background:#ff6a3d;">阿</span>
+              <span class="hl-comment-name">阿岛</span>
+              <span class="hl-comment-time">11-20</span>
+            </div>
+            <p class="hl-comment-text">从官网追到 app，内容质量一直很稳。最喜欢幕后系列，讲得细，不糊弄人，看完真的能学到东西。</p>
+            <div class="hl-comment-stars">★★★★★</div>
+          </article>
+
+          <article class="hl-comment-card">
+            <div class="hl-comment-head">
+              <span class="hl-comment-avatar" style="background:#37c9a0;">小</span>
+              <span class="hl-comment-name">小满不慌</span>
+              <span class="hl-comment-time">11-19</span>
+            </div>
+            <p class="hl-comment-text">城市观察笔记陪我度过好多下班路，节奏舒服，画面也干净。希望多更新一些老城区的选题。</p>
+            <div class="hl-comment-stars">★★★★★</div>
+          </article>
+
+          <article class="hl-comment-card">
+            <div class="hl-comment-head">
+              <span class="hl-comment-avatar" style="background:#b08cff;">镜</span>
+              <span class="hl-comment-name">镜中客</span>
+              <span class="hl-comment-time">11-18</span>
+            </div>
+            <p class="hl-comment-text">周周测评是真的自费横评，这点在现在太难得了。按视频建议买了收音设备，没踩坑，回来补个评论。</p>
+            <div class="hl-comment-stars">★★★★☆</div>
+          </article>
+
+          <article class="hl-comment-card">
+            <div class="hl-comment-head">
+              <span class="hl-comment-avatar" style="background:#e0a94a;">林</span>
+              <span class="hl-comment-name">林间晚风</span>
+              <span class="hl-comment-time">11-17</span>
+            </div>
+            <p class="hl-comment-text">app 安装过程很顺利，登录后收藏和官网同步，这点好评。播放器干净，没有花里胡哨的弹窗。</p>
+            <div class="hl-comment-stars">★★★★★</div>
+          </article>
+
+          <article class="hl-comment-card">
+            <div class="hl-comment-head">
+              <span class="hl-comment-avatar" style="background:#5c6bff;">石</span>
+              <span class="hl-comment-name">石头记</span>
+              <span class="hl-comment-time">11-16</span>
+            </div>
+            <p class="hl-comment-text">评论区氛围不错，大家是认真在讨论内容。偶尔有分歧也能好好说话，这在视频社区里挺难得的。</p>
+            <div class="hl-comment-stars">★★★★☆</div>
+          </article>
+
+          <article class="hl-comment-card">
+            <div class="hl-comment-head">
+              <span class="hl-comment-avatar" style="background:#ff8f8f;">苏</span>
+              <span class="hl-comment-name">苏打水</span>
+              <span class="hl-comment-time">11-15</span>
+            </div>
+            <p class="hl-comment-text">手作室的视频我几乎每期都跟着做，步骤清楚，材料也不难买。做完成品发到社区还有人点赞，很有成就感。</p>
+            <div class="hl-comment-stars">★★★★★</div>
+          </article>
+
+          <article class="hl-comment-card">
+            <div class="hl-comment-head">
+              <span class="hl-comment-avatar" style="background:#7bc96f;">白</span>
+              <span class="hl-comment-name">白露为霜</span>
+              <span class="hl-comment-time">11-14</span>
+            </div>
+            <p class="hl-comment-text">希望专题更新能再快一点，幕后真实力我每期都追，等得有点着急。整体内容还是很值得的。</p>
+            <div class="hl-comment-stars">★★★★☆</div>
+          </article>
+
+          <article class="hl-comment-card">
+            <div class="hl-comment-head">
+              <span class="hl-comment-avatar" style="background:#c07bff;">大</span>
+              <span class="hl-comment-name">大橘为重</span>
+              <span class="hl-comment-time">11-13</span>
+            </div>
+            <p class="hl-comment-text">作为新人创作者，官方训练营的剪辑课帮我理清了思路。投稿通道也顺畅，反馈虽然简单但能看懂问题在哪。</p>
+            <div class="hl-comment-stars">★★★★★</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- S7 企业动态 + 合作品牌 -->
+    <section class="hl-section" id="hl-updates" aria-labelledby="hl-updates-title">
+      <div class="hl-container">
+        <div class="hl-section-head">
+          <div>
+            <h2 class="hl-section-title" id="hl-updates-title">企业<em>动态</em>与伙伴</h2>
+            <p class="hl-section-desc">官方发布的最新进展、内容更新与合作信息，见证品牌持续成长。</p>
+          </div>
+          <span class="hl-tag">官方发布 · 持续运营</span>
+        </div>
+        <div class="hl-two-col">
+          <div class="hl-update-list">
+            <article class="hl-update-item">
+              <div class="hl-update-date">2026-11-20</div>
+              <div>
+                <h3>「幕后真实力」冬季创作挑战赛开启报名</h3>
+                <p>面向全社区创作者征集幕后题材作品，设 3 档扶持名额，优秀作品将进入官方专题企划并获首页推荐。</p>
+              </div>
+            </article>
+            <article class="hl-update-item">
+              <div class="hl-update-date">2026-11-15</div>
+              <div>
+                <h3>黑料不打烊 app 版本更新：收藏与观看进度跨端同步</h3>
+                <p>本次更新优化了播放器控件、离线缓存策略与评论区加载体验，官网与移动端数据保持一致。</p>
+              </div>
+            </article>
+            <article class="hl-update-item">
+              <div class="hl-update-date">2026-11-08</div>
+              <div>
+                <h3>第三期创作者训练营顺利结课，新增签约作者 12 位</h3>
+                <p>训练营围绕选题、拍摄与剪辑全流程展开，结课作品中有多部进入本周热门榜单。</p>
+              </div>
+            </article>
+            <article class="hl-update-item">
+              <div class="hl-update-date">2026-10-30</div>
+              <div>
+                <h3>官网帮助中心升级，新增投稿与版权说明专区</h3>
+                <p>帮助中心补充了常见问题、投稿流程与内容规范说明，进一步公开平台规则与运营标准。</p>
+              </div>
+            </article>
+          </div>
+          <div>
+            <h3 style="font-size:1rem; margin-bottom:16px; color:var(--hl-accent-2);">合作品牌与伙伴</h3>
+            <div class="hl-partner-grid">
+              <div class="hl-partner-item">光影器材</div>
+              <div class="hl-partner-item">城市影像馆</div>
+              <div class="hl-partner-item">青年创作基金</div>
+              <div class="hl-partner-item">云线工作室</div>
+              <div class="hl-partner-item">声场音频</div>
+              <div class="hl-partner-item">慢记录出版社</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S7 FAQ -->
+    <section class="hl-section" id="hl-faq" aria-labelledby="hl-faq-title">
+      <div class="hl-container">
+        <div class="hl-section-head">
+          <div>
+            <h2 class="hl-section-title" id="hl-faq-title">常见<em>问题</em></h2>
+            <p class="hl-section-desc">关于黑料不打烊官方网站与 app 的常见疑问，点击即可展开查看。</p>
+          </div>
+        </div>
+        <div class="hl-faq-list">
+          <details class="hl-faq-item">
+            <summary>黑料不打烊app在线安装的官方入口在哪里？</summary>
+            <p>请通过黑料不打烊官方网站内的官方入口进行黑料不打烊app在线安装，页面会提供清晰的安装步骤说明。安装完成后登录账号，即可与官网同步收藏、观看记录与互动数据，不建议通过第三方来源获取安装包。</p>
+          </details>
+          <details class="hl-faq-item">
+            <summary>平台上的内容都是原创吗？</summary>
+            <p>黑料不打烊坚持原创正版与高清标准。官方发布内容与签约创作者作品均有明确署名与产出记录，引用素材会遵循必要授权流程。社区投稿内容也会经过上线前审核，确保符合平台内容规范。</p>
+          </details>
+          <details class="hl-faq-item">
+            <summary>如何成为签约创作者？</summary>
+            <p>你可以先在社区持续投稿，保持稳定的更新频率与内容质量，官方会定期从热门榜单与投稿通道中发掘作者。同时，平台每季度举办创作者训练营，结课表现优秀者有机会获得签约邀请与流量扶持。</p>
+          </details>
+          <details class="hl-faq-item">
+            <summary>企业动态与专题企划多久更新一次？</summary>
+            <p>企业动态通常在重要版本发布、活动开启或运营节点更新；专题企划按系列节奏推进，「幕后真实力」每周更新一期，城市观察笔记与创作者对话录在固定周期内更新，具体以官网公告为准。</p>
+          </details>
+          <details class="hl-faq-item">
+            <summary>可以在平台投稿吗？投稿有主题限制吗？</summary>
+            <p>欢迎通过官网投稿入口提交作品。投稿题材需与真实记录、幕后故事、人物访谈、实用干货等内容方向相关，不接受搬运、重复发布与违反社区规则的内容。投稿后会收到审核反馈，通过后即可在社区展示。</p>
+          </details>
+          <details class="hl-faq-item">
+            <summary>如何反馈问题或提出内容建议？</summary>
+            <p>你可以通过页面底部的联系渠道提交反馈，也可以使用分享与反馈入口说明具体情况。我们会对播放体验、内容质量、社区规则相关问题进行核实，并在后续企业动态中同步重要调整。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- S8 页脚 -->
+  <footer class="hl-footer">
+    <div class="hl-container">
+      <div class="hl-footer-grid">
+        <div class="hl-footer-brand">
+          <a href="#" class="hl-brand"><span class="hl-brand-mark">黑</span>黑料不打烊<span class="hl-brand-dot">.</span></a>
+          <p>黑料不打烊官方网站 · 专注于真实幕后影像与深度人物故事的视频内容社区，以持续运营与用户至上为初心，与创作者一同成长。</p>
+        </div>
+        <div class="hl-footer-col">
+          <h4>内容</h4>
+          <ul>
+            <li><a href="#hl-spotlight">焦点推荐</a></li>
+            <li><a href="#hl-videos">热门视频</a></li>
+            <li><a href="#hl-topics">专题企划</a></li>
+            <li><a href="#hl-creators">创作者矩阵</a></li>
+          </ul>
+        </div>
+        <div class="hl-footer-col">
+          <h4>品牌</h4>
+          <ul>
+            <li><a href="#hl-analysis">品牌深度解析</a></li>
+            <li><a href="#hl-updates">企业动态</a></li>
+            <li><a href="#hl-reviews">社区口碑</a></li>
+            <li><a href="#hl-faq">帮助中心</a></li>
+          </ul>
+        </div>
+        <div class="hl-footer-col">
+          <h4>参与</h4>
+          <ul>
+            <li><a href="#" data-hl-submit>投稿入口</a></li>
+            <li><a href="#" data-hl-share>分享官网</a></li>
+            <li><a href="#" data-hl-feedback>意见反馈</a></li>
+            <li><a href="#hl-faq">常见问题</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hl-footer-bottom">
+        <span>© 2026 黑料不打烊 版权所有 · 持续运营中</span>
+        <span>官方发布 · 原创正版 · 高清体验</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 通用弹窗 -->
+  <div class="hl-modal-overlay" id="hl-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="hl-modal-title">
+    <div class="hl-modal">
+      <button class="hl-modal-close" id="hl-modal-close" aria-label="关闭弹窗">×</button>
+      <h3 id="hl-modal-title">提示</h3>
+      <p id="hl-modal-content"></p>
+    </div>
+  </div>
+  <div class="hl-toast" id="hl-toast">操作成功</div>
+  <button class="hl-back-top" id="hl-back-top" aria-label="回到顶部">↑</button>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // 移动导航
+      var menuToggle = document.getElementById('hl-menu-toggle');
+      var mainNav = document.getElementById('hl-main-nav');
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', function () {
+          var isOpen = mainNav.classList.toggle('hl-open');
+          menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        mainNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            mainNav.classList.remove('hl-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // Toast
+      var toast = document.getElementById('hl-toast');
+      var toastTimer = null;
+      function showToast(msg) {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('hl-show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toast.classList.remove('hl-show');
+        }, 2200);
+      }
+
+      // 弹窗
+      var overlay = document.getElementById('hl-modal-overlay');
+      var modalTitle = document.getElementById('hl-modal-title');
+      var modalContent = document.getElementById('hl-modal-content');
+      var modalClose = document.getElementById('hl-modal-close');
+      function openModal(title, content) {
+        if (!overlay) return;
+        modalTitle.textContent = title;
+        modalContent.textContent = content;
+        overlay.classList.add('hl-show');
+      }
+      function closeModal() {
+        if (overlay) overlay.classList.remove('hl-show');
+      }
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      if (overlay) {
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) closeModal();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // 搜索反馈
+      var searchInput = document.getElementById('hl-search-input');
+      var searchFeedback = document.getElementById('hl-search-feedback');
+      var searchTimer = null;
+      if (searchInput && searchFeedback) {
+        searchInput.addEventListener('input', function () {
+          var value = searchInput.value.trim();
+          clearTimeout(searchTimer);
+          if (!value) {
+            searchFeedback.classList.remove('hl-show');
+            return;
+          }
+          searchTimer = setTimeout(function () {
+            searchFeedback.innerHTML = '正在为你搜索「<strong>' + value.replace(/</g, '&lt;') + '</strong>」相关视频与创作者…<br>可在上方导航进入「视频」或「创作者」板块查看结果。';
+            searchFeedback.classList.add('hl-show');
+          }, 220);
+        });
+        searchInput.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' && searchInput.value.trim()) {
+            searchFeedback.innerHTML = '已提交搜索：「<strong>' + searchInput.value.trim().replace(/</g, '&lt;') + '</strong>」。当前为演示搜索，可浏览「视频」板块获取精选内容。';
+            searchFeedback.classList.add('hl-show');
+          }
+        });
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.hl-search-wrap')) {
+            searchFeedback.classList.remove('hl-show');
+          }
+        });
+      }
+
+      // 点赞
+      document.querySelectorAll('[data-hl-like]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var liked = btn.classList.toggle('hl-liked');
+          var text = btn.textContent;
+          var match = text.match(/(\d+(?:\.\d+)?)(k?)/i);
+          if (match) {
+            var num = parseFloat(match[1]);
+            var unit = match[2] || '';
+            num = liked ? num + 0.1 : Math.max(0, num - 0.1);
+            btn.textContent = '♡ ' + num.toFixed(1).replace('.0', '') + unit;
+          }
+          showToast(liked ? '已点赞，感谢支持' : '已取消点赞');
+        });
+      });
+
+      // 收藏
+      document.querySelectorAll('[data-hl-save]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var saved = btn.classList.toggle('hl-saved');
+          btn.textContent = saved ? '★' : '☆';
+          showToast(saved ? '已加入收藏' : '已取消收藏');
+        });
+      });
+
+      // 评论按钮
+      document.querySelectorAll('[data-hl-comment]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          openModal('参与评论', '该视频的评论区已在社区开放。登录后即可参与讨论，请保持友善与真实的交流氛围，与黑料不打烊一起维护有品质的内容社区。');
+        });
+      });
+
+      // 投稿弹窗
+      function openSubmit() {
+        openModal('官方投稿入口', '欢迎向黑料不打烊官方投稿。请准备作品链接或视频文件说明，并附上创作简介与联系方式。投稿题材需围绕真实记录、幕后故事、人物访谈或实用干货，审核通过后将进入社区展示。');
+      }
+      var submitBtn = document.getElementById('hl-submit-btn');
+      if (submitBtn) submitBtn.addEventListener('click', openSubmit);
+      document.querySelectorAll('[data-hl-submit]').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); openSubmit(); });
+      });
+
+      // 分享
+      function sharePage() {
+        openModal('分享黑料不打烊官网', '你可以将黑料不打烊官方网站分享至微信、微博或 QQ，让更多朋友了解这个真实、温暖的视频内容社区。感谢你的支持，我们会持续带来高品质的原创内容。');
+      }
+      document.querySelectorAll('[data-hl-share]').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); sharePage(); });
+      });
+
+      // 反馈
+      document.querySelectorAll('[data-hl-feedback]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal('意见反馈', '如果你在观看、安装或投稿过程中遇到问题，欢迎通过官方反馈渠道说明具体情况。我们会对播放体验、内容质量与社区规则相关问题进行核实，并在企业动态中同步重要调整。');
+        });
+      });
+
+      // 回到顶部
+      var backTop = document.getElementById('hl-back-top');
+      if (backTop) {
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 600) {
+            backTop.classList.add('hl-show');
+          } else {
+            backTop.classList.remove('hl-show');
+          }
+        });
+        backTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // 数字滚动（简化呈现）
+      var counters = document.querySelectorAll('[data-hl-count]');
+      counters.forEach(function (el) {
+        var raw = el.textContent;
+        var targetMatch = raw.match(/(\d+)/);
+        if (!targetMatch) return;
+        var target = parseInt(targetMatch[1], 10);
+        var suffix = raw.replace(/[0-9]/g, '');
+        var start = Math.max(0, target - 200);
+        var current = start;
+        var step = Math.max(1, Math.floor((target - start) / 40));
+        var timer = setInterval(function () {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          el.textContent = current + suffix;
+        }, 24);
+      });
+
+      // 锚点平滑偏移：吸顶高度补偿
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var id = link.getAttribute('href');
+          if (!id || id === '#') return;
+          var target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          var sticky = document.querySelector('.hl-sticky-top');
+          var offset = sticky ? sticky.offsetHeight + 8 : 0;
+          var top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        });
+      });
+
+    })();
+  </script>
+</body>
+  </html>
